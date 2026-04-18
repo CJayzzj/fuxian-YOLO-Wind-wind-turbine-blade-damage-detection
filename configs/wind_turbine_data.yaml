@@ -1,0 +1,19 @@
+# Wind Turbine Blade Damage Detection – Dataset Configuration
+#
+# Dataset: YOLO-annotated Wind Turbine Surface Damage
+# Source:  https://www.kaggle.com/datasets/ajifoster3/yolo-annotated-wind-turbines-586x371
+# Paper:   Foster et al., IEEE IVMSP 2022
+#
+# Classes:
+#   0: dirt   – surface contamination (lower severity)
+#   1: damage – structural cracks / erosion (higher severity)
+
+path: ./dataset          # root path (override with --data flag or in train.py)
+train: images/train
+val:   images/val
+test:  images/test
+
+nc: 2
+names:
+  0: dirt
+  1: damage
