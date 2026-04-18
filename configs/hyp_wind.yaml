@@ -1,0 +1,38 @@
+# Hyperparameter configuration for YOLOv8m-Wind (improved baseline)
+#
+# Key changes vs. YOLOv8 defaults:
+#   - lr0/lrf tuned for fine-grained defect detection
+#   - Stronger augmentation (mosaic, mixup, copy_paste) for small-object robustness
+#   - Cosine LR schedule via cos_lr=True (set in train.py)
+#   - Label-smoothing to reduce overconfidence on noisy annotations
+#   - Longer warmup to stabilise CBAM parameters early in training
+
+lr0:          0.01        # initial learning rate
+lrf:          0.01        # final LR as fraction of lr0 (cosine schedule)
+momentum:     0.937       # SGD momentum / Adam beta1
+weight_decay: 0.0005      # L2 regularisation
+warmup_epochs: 5.0        # warmup length (epochs)
+warmup_momentum: 0.8
+warmup_bias_lr: 0.1
+
+# Loss weights
+box:    7.5               # box regression loss gain
+cls:    0.5               # classification loss gain
+dfl:    1.5               # distribution focal loss gain
+
+# Augmentation probabilities
+hsv_h:      0.015         # hue jitter
+hsv_s:      0.7           # saturation jitter
+hsv_v:      0.4           # value jitter
+degrees:    0.0           # rotation (turbine images are upright)
+translate:  0.1           # translation fraction
+scale:      0.5           # scale jitter (±50 %)
+shear:      0.0
+perspective: 0.0
+flipud:     0.0           # vertical flip probability
+fliplr:     0.5           # horizontal flip probability
+mosaic:     1.0           # mosaic augmentation probability
+mixup:      0.15          # mixup augmentation probability
+copy_paste: 0.1           # copy-paste augmentation probability
+
+label_smoothing: 0.05     # label smoothing ε

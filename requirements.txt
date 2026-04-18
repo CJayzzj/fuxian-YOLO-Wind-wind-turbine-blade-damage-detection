@@ -1,0 +1,11 @@
+ultralytics==8.2.84
+transformers==4.41.2
+accelerate==0.33.0
+timm==0.9.16
+torchmetrics==1.4.0
+opencv-python>=4.8.0
+numpy>=1.24.0
+pandas>=2.0.0
+tqdm>=4.66.0
+Pillow>=10.0.0
+pyyaml>=6.0
